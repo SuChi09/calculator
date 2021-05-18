@@ -3,14 +3,19 @@
   <h1>Welcome to the {{ title }}!</h1>
 
   <label>Input 1:</label>
-  <input type="text" class="form-control" id="name" required [(ngModel)]="paramOne" />
+  <input type="number" class="form-control number-input" required [(ngModel)]="paramOne" />
 
   <label>Input 2:</label>
-  <input type="text" class="form-control" id="name" required [(ngModel)]="paramTwo" />
+  <input type="number" class="form-control number-input" required [(ngModel)]="paramTwo" />
 
   <label>Operator:</label>
-  <input type="text" class="form-control" id="name" required [(ngModel)]="operator" />
+  <br />
+  <input type="radio" class="radio" [(ngModel)]="operator" value="add" />Add (+)
+  <input type="radio" class="radio" [(ngModel)]="operator" value="sub" />Sub (-)
+  <input type="radio" class="radio" [(ngModel)]="operator" value="mul" />Mul (*)
+  <input type="radio" class="radio" [(ngModel)]="operator" value="div" />Div (/)
 
+  <br />
   <button type="button" class="btn btn-primary" (click)="onCalculate()">Calculate</button>
 
   <h5>Result:</h5>
