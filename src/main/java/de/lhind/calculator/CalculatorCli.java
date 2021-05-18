@@ -7,15 +7,15 @@ import org.springframework.shell.standard.ShellMethod;
 @ShellComponent
 public class CalculatorCli {
 
-	private CalculatorController calculatorController;
+	private CalculatorInterface calculatorInterface;
 
 	@Autowired
-	public CalculatorCli(CalculatorController calculatorController) {
-		this.calculatorController = calculatorController;
+	public CalculatorCli(CalculatorInterface calculatorInterface) {
+		this.calculatorInterface = calculatorInterface;
 	}
 
 	@ShellMethod("Calculation")
-	public double calc(String op, double a, double b) {
-		return calculatorController.operation(op, a, b);
+	public double calc(String op, String a, String b) {
+		return calculatorInterface.operation(op, a, b);
 	}
 }
