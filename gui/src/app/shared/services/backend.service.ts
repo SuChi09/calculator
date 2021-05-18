@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CalculationObject, CalculationResult } from '../models/calculation.model';
 
 @Injectable({
@@ -8,7 +9,12 @@ import { CalculationObject, CalculationResult } from '../models/calculation.mode
 export class BackendService {
   constructor(private http: HttpClient) {}
 
-  calculate(calculationObject: CalculationObject) {
-    return this.http.post<CalculationResult>('dummy/url', calculationObject, undefined);
+  calculate(calculationObject: CalculationObject): Observable<CalculationResult> {
+    let params = new HttpParams();
+    params = params.append('op', 'mul');
+    params = params.append('a', '2');
+    params = params.append('b', '2');
+
+    return this.http.get<CalculationResult>('http://localhost:8080/calc/', { params: params });
   }
 }
