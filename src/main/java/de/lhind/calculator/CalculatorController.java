@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CalculatorController implements CalculatorInterface {
 
+	public CalculatorController() {
+		new LogObserver(CalculatorService.getInstance());
+	}
+
 	@GetMapping("/calc")
 	public double operation(@RequestParam(value = "op") String op, @RequestParam(value = "a") String a, @RequestParam(value = "b") String b) {
-		new ResultObserver(CalculatorService.getInstance());
 		return CalculatorService.getInstance().operation(op, a, b);
 	}
 }
