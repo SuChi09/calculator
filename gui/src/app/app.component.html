@@ -1,8 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align: center">
-  <h1>Welcome to {{ title }}!</h1>
+<div style="text-align: center" class="container">
+  <h1>Welcome to the {{ title }}!</h1>
 
-  <input />
-  <label>Result:</label>
-  <span> {{ result }}</span>
+  <label>Input 1:</label>
+  <input type="text" class="form-control" id="name" required [(ngModel)]="paramOne" />
+
+  <label>Input 2:</label>
+  <input type="text" class="form-control" id="name" required [(ngModel)]="paramTwo" />
+
+  <label>Operator:</label>
+  <input type="text" class="form-control" id="name" required [(ngModel)]="operator" />
+
+  <button type="button" class="btn btn-primary" (click)="onCalculate()">Calculate</button>
+
+  <h5>Result:</h5>
+
+  <h5>{{ result }}</h5>
 </div>

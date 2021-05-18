@@ -11,9 +11,9 @@ export class BackendService {
 
   calculate(calculationObject: CalculationObject): Observable<CalculationResult> {
     let params = new HttpParams();
-    params = params.append('op', 'mul');
-    params = params.append('a', '2');
-    params = params.append('b', '2');
+    params = params.append('op', calculationObject.operator);
+    params = params.append('a', calculationObject.parameterOne);
+    params = params.append('b', calculationObject.parameterTwo);
 
     return this.http.get<CalculationResult>('http://localhost:8080/calc/', { params: params });
   }

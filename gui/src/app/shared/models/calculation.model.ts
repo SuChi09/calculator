@@ -1,6 +1,6 @@
 export class CalculationObject {
-  parameterOne: number;
-  parameterTwo: number;
+  parameterOne: string;
+  parameterTwo: string;
   operator: string;
 }
 
